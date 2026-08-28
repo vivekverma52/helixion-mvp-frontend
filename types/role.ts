@@ -1,0 +1,1 @@
+export type Role = 'admin' | 'employee' | 'manager' | 'training_provider';

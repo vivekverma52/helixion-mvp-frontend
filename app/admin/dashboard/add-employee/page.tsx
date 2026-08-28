@@ -1,0 +1,172 @@
+'use client';
+
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { UserPlus, CheckCircle2, AlertCircle } from 'lucide-react';
+import PageHeader from '@/components/ui/pageHeader';
+import { useCreateSingleUser } from '@/hooks/useCreateSingleUser';
+import { ROUTES } from '@/constants/navigation';
+import { TextField, Checkbox } from '@/components/shared/FormFields';
+import { t } from '@/lib/i18n';
+
+interface FormState {
+  name: string;
+  email: string;
+  employeeCode: string;
+  mobile: string;
+  placeOfPosting: string;
+  designation: string;
+  department: string;
+  reportingManagerEmail: string;
+  trainingDeptSeniorOfficer: boolean;
+  osdSeniorOfficer: boolean;
+  isManager: boolean;
+}
+
+const INITIAL_STATE: FormState = {
+  name: '',
+  email: '',
+  employeeCode: '',
+  mobile: '',
+  placeOfPosting: '',
+  designation: '',
+  department: '',
+  reportingManagerEmail: '',
+  trainingDeptSeniorOfficer: false,
+  osdSeniorOfficer: false,
+  isManager: false,
+};
+
+export default function AddEmployeePage() {
+  const router = useRouter();
+  const { createSingleUser, loading, error } = useCreateSingleUser();
+  const [form, setForm] = useState<FormState>(INITIAL_STATE);
+  const [success, setSuccess] = useState<string | null>(null);
+
+  const setField = <K extends keyof FormState>(field: K, value: FormState[K]) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+    setSuccess(null);
+  };
+
+  const canSubmit = form.name.trim().length > 0 && form.email.trim().length > 0 && !loading;
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!canSubmit) return;
+
+    const ok = await createSingleUser({
+      name: form.name,
+      email: form.email,
+      employeeCode: form.employeeCode || undefined,
+      mobile: form.mobile || undefined,
+      placeOfPosting: form.placeOfPosting || undefined,
+      designation: form.designation || undefined,
+      department: form.department || undefined,
+      reportingManagerEmail: form.reportingManagerEmail || undefined,
+      trainingDeptSeniorOfficer: form.trainingDeptSeniorOfficer,
+      osdSeniorOfficer: form.osdSeniorOfficer,
+      isManager: form.isManager,
+    });
+
+    if (ok) {
+      setSuccess(t('admin.addEmployee.successToast', { name: form.name }));
+      setForm(INITIAL_STATE);
+    }
+  };
+
+  return (
+    <div className="space-y-6 p-8">
+      {/* Breadcrumb */}
+      <div className="flex items-center gap-2 text-sm">
+        <span className="text-textSidebarMuted">{t('admin.addEmployee.breadcrumbUsers')}</span>
+        <span className="text-textSidebarMuted">/</span>
+        <span className="text-primary font-medium">{t('admin.addEmployee.breadcrumbAddEmployee')}</span>
+      </div>
+
+      <PageHeader
+        title={t('admin.addEmployee.pageTitle')}
+        description={t('admin.addEmployee.pageDescription')}
+      />
+
+      <form onSubmit={handleSubmit} className="max-w-2xl space-y-6">
+        <div className="rounded-xl bg-bgStatCard border border-borderCard p-6 space-y-4">
+          <div className="flex items-center gap-2 mb-2">
+            <UserPlus size={16} className="text-primary" />
+            <h3 className="text-sm font-semibold text-white">{t('admin.addEmployee.basicDetails')}</h3>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <TextField label="Name" required value={form.name} onChange={(v) => setField('name', v)} placeholder="Jane Doe" />
+            <TextField label="Email" required value={form.email} onChange={(v) => setField('email', v)} placeholder="jane@corp.in" />
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <TextField label="Employee Roll No." value={form.employeeCode} onChange={(v) => setField('employeeCode', v)} placeholder="Auto-generated if left blank" />
+            <TextField label="Mobile" value={form.mobile} onChange={(v) => setField('mobile', v)} />
+          </div>
+
+          <div className="grid grid-cols-3 gap-4">
+            <TextField label="Place of Posting" value={form.placeOfPosting} onChange={(v) => setField('placeOfPosting', v)} />
+            <TextField label="Designation" value={form.designation} onChange={(v) => setField('designation', v)} />
+            <TextField label="Department" value={form.department} onChange={(v) => setField('department', v)} />
+          </div>
+        </div>
+
+        <div className="rounded-xl bg-bgStatCard border border-borderCard p-6 space-y-3">
+          <h3 className="text-sm font-semibold text-white mb-1">{t('admin.addEmployee.reportingManager')}</h3>
+          <p className="text-xs text-textSidebarMuted mb-3">
+            {t('admin.addEmployee.reportingManagerHint')}
+          </p>
+          <TextField
+            label="Reporting Manager Email (optional)"
+            value={form.reportingManagerEmail}
+            onChange={(v) => setField('reportingManagerEmail', v)}
+            placeholder="manager@corp.in"
+          />
+        </div>
+
+        <div className="rounded-xl bg-bgStatCard border border-borderCard p-6 space-y-3">
+          <h3 className="text-sm font-semibold text-white mb-1">{t('admin.addEmployee.officeRoles')}</h3>
+          <div className="grid grid-cols-3 gap-3">
+            <Checkbox label={t('admin.addEmployee.managerLabel')} checked={form.isManager} onChange={(v) => setField('isManager', v)} />
+            <Checkbox label={t('admin.addEmployee.ctdLabel')} checked={form.trainingDeptSeniorOfficer} onChange={(v) => setField('trainingDeptSeniorOfficer', v)} />
+            <Checkbox label={t('admin.addEmployee.osdLabel')} checked={form.osdSeniorOfficer} onChange={(v) => setField('osdSeniorOfficer', v)} />
+          </div>
+        </div>
+
+        {error && (
+          <div className="flex items-start gap-3 p-4 rounded-lg bg-accentRed/10 border border-accentRed/20">
+            <AlertCircle className="text-accentRed flex-shrink-0 mt-0.5" size={16} />
+            <p className="text-sm text-accentRed">{error}</p>
+          </div>
+        )}
+
+        {success && (
+          <div className="flex items-start gap-3 p-4 rounded-lg bg-accentGreen/10 border border-accentGreen/20">
+            <CheckCircle2 className="text-accentGreen flex-shrink-0 mt-0.5" size={16} />
+            <p className="text-sm text-accentGreen">{success}</p>
+          </div>
+        )}
+
+        <div className="flex items-center justify-end gap-3">
+          <button
+            type="button"
+            onClick={() => router.push(ROUTES.DASHBOARD.ADMIN)}
+            className="px-5 py-2.5 text-sm text-white/70 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-all duration-200"
+          >
+            {t('admin.addEmployee.backToDashboard')}
+          </button>
+          <button
+            type="submit"
+            disabled={!canSubmit}
+            className="px-6 py-2.5 text-sm font-medium text-white bg-primary rounded-lg hover:bg-primaryDark
+                       transition-all duration-200 shadow-glow disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {loading ? t('admin.addEmployee.creatingButton') : t('admin.addEmployee.createButton')}
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+}
+

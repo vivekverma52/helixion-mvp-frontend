@@ -1,0 +1,806 @@
+{
+   "programme": {
+      "title":"PROGRAM",
+      "date":"DATE",
+      "currentlyTracking":"Currently Tracking",
+      "unknownProgram":"Unknown Program",
+      "available": "Available Programmes",
+      "empty": "No programmes available right now.",
+      "enrol": "Enrol",
+      "livePreview": "Live preview",
+      "howToSee": "How participants will see this program",
+      "defaultTitle": "Program title appears here",
+      "defaultVenue": "Venue — not set",
+      "noprogramsfoundsearch":"No programs found for your search",
+      "noprogramsAvailable":"No programs available",
+      "list": {
+         "title": "Listed Training Programs",
+         "description": "Select a program to view details and enroll",
+         "searchPlaceholder": "Search programs...",
+         "filterTitleLabel": "Program Title",
+         "filterTitlePlaceholder": "Search by title...",
+         "filterVenueLabel": "Venue",
+         "filterVenuePlaceholder": "Search by venue...",
+         "filterDateRange": "Date Range",
+         "filterDateFrom": "From",
+         "filterDateTo": "To",
+         "clearFilters": "Clear Filters",
+         "applyFilters": "Apply",
+         "columnTitle": "Program Title",
+         "columnFromDate": "From Date",
+         "columnToDate": "To Date",
+         "columnVenue": "Venue",
+         "columnProvider": "Training Provider",
+         "detailVenueLabel": "Venue",
+         "detailStayTypeLabel": "Stay Type",
+         "stayTypeSingle": "Single Occupancy",
+         "stayTypeTwin": "Twin Sharing",
+         "stayTypeNonResidential": "Non-Residential",
+         "fetchError": "Failed to load programs. Please try again.",
+         "downloadBrochure": "Download Brochure",
+         "enrolledLabel": "Enrolled",
+         "enrollButton": "Enrol in Program",
+         "enrollingButton": "Enrolling...",
+         "enrollError": "Enrollment failed. Please try again."
+      },
+      "fields": {
+         "start": "Starts",
+         "end": "Ends",
+         "capacity": "Capacity",
+         "fees": "Fees",
+         "programTitle": "Program title",
+         "programTitlePlaceholder": "e.g. Accounting and Auditing Principles",
+         "programDates": "Program dates",
+         "venue": "Venue",
+         "venuePlaceholder": "e.g. Hotel Ritz, Kolkata",
+         "city": "City",
+         "cityPlaceholder": "e.g. Kolkata",
+         "stayType": "Stay type",
+         "programFee": "Program fee",
+         "attachBrochure": "Attach brochure",
+         "minimumParticipants": "Minimum participants",
+         "maximumParticipants": "Maximum participants",
+         "brochure":"Brochure",
+         "notes":"Notes",
+         "noNotesAvailable":"No notes available"
+      },
+      "createpageTitle": "Create new training program",
+      "createpageDescription": "Publish a single program to the Helixon marketplace.",
+      "createdetailsTitle": "Program details",
+      "createdetailsDescription": "All fields are required unless marked optional.",
+      "publishProgram": "Publish program"
+   },
+   "enrollment": {
+      "title": "My Enrollments",
+      "empty": "No enrollments yet.",
+      "status": {
+         "pending": "Not started",
+         "active": "In progress",
+         "completed": "Completed",
+         "pend":"Pending"
+      }
+   },
+   "dashboard": {
+      "welcome": "Welcome Back, {name}",
+      "errorTitle": "Error",
+      "errorDescription": "Unable to load your dashboard. Please try refreshing the page.",
+      "employeeBreadcrump": "Workspace › Dashboard",
+      "enroll": "enroll"
+   },
+   "dashboardShell": {
+      "sessionExpired": {
+         "title": "Session Expired",
+         "description": "Your login session has expired. Please sign in again to restore access to your account.",
+         "action": "Sign In Again"
+      },
+      "accessDenied": {
+         "title": "Access Denied",
+         "description": "You do not have the required permissions to view this resource. If you believe this is a mistake, please reach out to your administrator.",
+         "goBack": "Go Back",
+         "dashboardHome": "Dashboard Home"
+      }
+   },
+   "common": {
+      "loading": "Loading...",
+      "error": "Something went wrong. Please try again.",
+      "success": "Success",
+      "n/a":"N/A",
+      "notAvailable":"Not Available",
+      "failedToLoad":"Failed to load details.",
+      "required":"Required",
+      "notRequired":"Not Required",
+      "cancel": "Cancel",
+      "save": "Save",
+      "edit": "Edit",
+      "actions": "Actions"
+   },
+   "notifications": {
+      "title": "Notifications",
+      "empty": "No notifications yet",
+      "fetchError": "Failed to load notifications",
+      "ariaLabel": "Notifications"
+   },
+   "auth": {
+      "forgotPassword": {
+         "title": "Forgot password?",
+         "description": "Enter your email and we’ll send you a reset link.",
+         "confirmTitle": "Send reset link?",
+         "confirmDescription": "We will send a reset email to {email}",
+         "successTitle": "Check your inbox",
+         "successDescription": "We sent a reset link to {email}",
+         "submit": "Send Reset Link"
+      },
+      "resetPassword": {
+         "back": "Back to login",
+         "title": "Reset password",
+         "placeholderNew": "Enter new password",
+         "placeholderConfirm": "Confirm your password",
+         "submit": "Reset Password",
+         "successTitle": "Password updated!",
+         "successDescription": "Your password has been reset successfully. You can now sign in with your new password.",
+         "redirecting": "Redirecting to sign in...",
+         "errorDefault": "Something went wrong. Please try again.",
+         "passwordMismatch": "Passwords do not match",
+         "confirmDescription": "A reset link will be sent to {email}",
+         "successDescriptions": "Password reset link has been sent successfully"
+      }
+   },
+   "email": {
+      "inputLabel": "Email address",
+      "inputPlaceholder": "you@example.com"
+   },
+   "button": {
+      "cancel": "cancel",
+      "done": "Done",
+      "send": "Send",
+      "confirm": "Confirm & Approve",
+      "preview": "preview",
+      "browse": "Browse",
+      "saveDraft": "Save draft",
+      "submitTourDetails":"Submit Tour Details",
+      "submitted":"Submitted"
+   },
+   "password": {
+      "description": "Choose a strong password you haven’t used before.",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm password"
+   },
+   "input": {
+      "searchPlaceholder": "Search users..."
+   },
+   "table": {
+      "username": "Username",
+      "email": "Email",
+      "action": "Action",
+      "no-data": "No matching records found.",
+      "programTitle": "Program Title",
+      "dates": "Dates",
+      "venue": "Venue",
+      "status": "Status",
+      "noPrograms": "No programs listed yet",
+      "listedTitle": "Listed Training Programs",
+      "listedSubtitle": "Upcoming programs available for enrollment",
+      "viewAll": "View all →"
+   },
+   "admin": {
+      "deactivate": {
+         "title": "Employees & Deactivation",
+         "description": "Everyone in your organization — their role and reporting chain. Select a user to deactivate their account.",
+         "searchPlaceholder": "Search by name, email, or employee code",
+         "searchButton": "Search",
+         "resultsHeading": "Search results",
+         "loading": "Loading...",
+         "noResults": "No users found.",
+         "columnUser": "User",
+         "columnRole": "Role",
+         "columnReportingManager": "Reporting Manager",
+         "columnSkipL1": "Skip L1",
+         "columnSkipL2": "Skip L2",
+         "columnStatus": "Status",
+         "statusActive": "Active",
+         "statusDeactivated": "Deactivated",
+         "defaultRole": "User",
+         "deactivateAccount": "Deactivate account",
+         "activateAccount": "Activate account",
+         "cancel": "Cancel",
+         "confirmDeactivateTitle": "Deactivate {name}?",
+         "confirmDeactivateBody": "They will be signed out and blocked from login immediately.",
+         "confirmDeactivateSubmit": "Yes, deactivate",
+         "confirmActivateTitle": "Activate {name}?",
+         "confirmActivateBody": "They will be able to log in again.",
+         "confirmActivateSubmit": "Yes, activate",
+         "toastDeactivated": "{name} has been deactivated.",
+         "toastActivated": "{name} has been activated.",
+         "toastDeactivateError": "Could not deactivate {name}. Please try again.",
+         "toastActivateError": "Could not activate {name}. Please try again."
+      },
+      "organizations": {
+         "title": "Organizations",
+         "description": "Every organization created on the platform, with its type and status.",
+         "searchPlaceholder": "Search by name or slug",
+         "searchButton": "Search",
+         "resultsHeading": "Organizations",
+         "loading": "Loading...",
+         "noResults": "No organizations found.",
+         "columnName": "Name",
+         "columnSlug": "Slug",
+         "columnType": "Type",
+         "columnStatus": "Status",
+         "columnCreated": "Created",
+         "columnActions": "Actions",
+         "editAction": "Edit",
+         "statusActive": "Active",
+         "statusInactive": "Inactive",
+         "assignedLabel": "Assigned",
+         "assignedHint": "routed to one specific person in the chain.",
+         "poolLabel": "Pool",
+         "poolHint": "any officer holding that role can act on it."
+      },
+      "addEmployee": {
+         "breadcrumbUsers": "Users",
+         "breadcrumbAddEmployee": "Add Employee",
+         "pageTitle": "Add Employee",
+         "pageDescription": "Create a single employee directly. Unlike bulk upload, a reporting manager is optional here — use this for the one person at the top of your org hierarchy who has nobody above them.",
+         "basicDetails": "Basic details",
+         "reportingManager": "Reporting manager",
+         "reportingManagerHint": "Leave blank if this person is at the top of the hierarchy (nobody above them).",
+         "managerLabel": "Manager",
+         "officeRoles": "Office roles",
+         "officeRolesHint": "Only one employee in the org can be CTD, and only one can be OSD — assigning it here takes it away from whoever currently holds it.",
+         "ctdLabel": "CTD (Training Dept Officer)",
+         "osdLabel": "OSD Officer",
+         "backToDashboard": "Back to Dashboard",
+         "createButton": "Create Employee",
+         "creatingButton": "Creating...",
+         "successToast": "{name} was created successfully."
+      },
+      "editEmployee": {
+         "title": "Edit employee",
+         "titleWithName": "Edit {name}",
+         "loading": "Loading employee...",
+         "notFound": "Employee not found.",
+         "statusLabel": "Status:",
+         "managerLabel": "Manager",
+         "basicDetails": "Basic details",
+         "reportingManager": "Reporting manager",
+         "officeRoles": "Office roles",
+         "officeRolesHint": "Only one CTD and one OSD per org — checking this takes the role away from whoever currently holds it.",
+         "ctdLabel": "CTD (Training Dept Officer)",
+         "osdLabel": "OSD Officer",
+         "cancel": "Cancel",
+         "saveChanges": "Save changes",
+         "successToast": "{name} was updated successfully."
+      },
+      "approveUser": {
+         "title": "Approve User",
+         "selectRole": "Select role",
+         "assignRole": "Assign Role",
+         "roleHelp": "Select the appropriate role for this user.",
+         "successTitle": "User Approved Successfully",
+         "successDescription": "The user has been assigned a role and approved successfully.",
+         "roleAssigned": "Role assigned"
+      }
+   },
+   "bulkImport": {
+      "breadcrumb": {
+         "users": "Users",
+         "bulkImport": "Bulk import"
+      },
+      "header": {
+         "title": "Bulk import users",
+         "description": "Upload a CSV to approve pending users and assign roles in one step. Each row is validated before any changes are committed."
+      },
+      "formats": {
+         "label": "Supported formats",
+         "csv": ".csv format",
+         "csvDescription": "Comma-separated values",
+         "xlsx": ".xlsx format",
+         "xlsxDescription": "Excel workbook",
+         "enabled": "Enabled",
+         "paidPlan": "Paid plan",
+         "paidPlanTitle": "Paid Plan Required",
+         "paidPlanDescription": "The .xlsx format is currently only available for customers on a paid plan. Please select .csv or contact support to upgrade."
+      },
+      "template": {
+         "stepLabel": "Step 1 — Download template",
+         "fileName": "roles_import_template.csv",
+         "description": "Columns: email, role, action · Valid roles: employee · training_provider · admin · Actions: approve · update",
+         "downloadButton": "Download"
+      },
+      "upload": {
+         "stepLabel": "Step 2 — Upload file",
+         "dropLabel": "Drop {format} file here or click to browse",
+         "hint": ".xlsx available on paid plan · Max 50 rows",
+         "processing": "Processing file...",
+         "errorTitle": "Upload Error",
+         "errorInvalidType": "Please upload a CSV file (.csv)",
+         "errorFileSize": "File size must be under 5MB",
+         "errorNoData": "No valid data found in the file. Ensure it has an \"email\" column.",
+         "errorMaxRows": "Maximum 50 rows allowed per batch. Your file contains {count} rows.",
+         "errorCsvNoEmail": "CSV must contain an \"email\" column",
+         "errorGeneric": "Failed to process file"
+      },
+      "review": {
+         "previewLabel": "Preview — read only",
+         "valid": "{count} valid",
+         "error": "{count} error",
+         "warning": "{count} warning",
+         "columnRow": "#",
+         "columnEmail": "Email",
+         "columnRole": "Role",
+         "columnAction": "Action",
+         "columnStatus": "Status",
+         "columnNote": "Note",
+         "footerInfo": "Preview is read-only. To make corrections, fix the source CSV and re-upload.",
+         "committing": "Committing",
+         "validRows": "{count} valid rows",
+         "skipped": "{count} skipped",
+         "reUploadButton": "Re-upload",
+         "commitButton": "Commit {count} changes",
+         "committingButton": "Committing...",
+         "removeButton": "Remove",
+         "noteValid": "Pending user found",
+         "noteInvalidRole": "User not found — will be skipped",
+         "noteInvalidAction": "Invalid action — will be skipped",
+         "noteRoleChange": "Role change: Employee → {role}"
+      },
+      "confirm": {
+         "title": "Confirm bulk import",
+         "description": "This will approve {count} users and assign their roles immediately.",
+         "skippedNote": "{count} row(s) with errors will be skipped.",
+         "auditNote": "This action is logged in the audit trail and cannot be undone in bulk.",
+         "cancelButton": "Cancel",
+         "confirmButton": "Yes, commit changes"
+      },
+      "results": {
+         "successTitle": "Import successful",
+         "failureTitle": "Import failed",
+         "partialTitle": "Some rows need fixing",
+         "allSkippedTitle": "Nothing was imported",
+         "successDescription": "{count} users have been approved and roles assigned. They will receive login emails shortly.",
+         "alreadyUploadedTitle": "Already uploaded",
+         "alreadyUploadedDescription": "All {count} row{countPlural} already existed in the system — their details were refreshed, but no new employees were created.",
+         "failureDescription": "An error occurred during the import process.",
+         "partialDescription": "{succeeded} row{succeededPlural} imported successfully. {skipped} row{skippedPlural} failed and still need fixing — see below.",
+         "allSkippedDescription": "All {skipped} row{skippedPlural} failed. Fix the details below and re-upload.",
+         "approved": "{count} approved",
+         "roleUpdated": "{count} role updated",
+         "skipped": "{count} skipped",
+         "doneButton": "Done",
+         "noValidUsers": "No valid users to process"
+      },
+      "rolePanel": {
+         "managerLabel": "Manager"
+      }
+   },
+   "bulkProgram": {
+      "pageTitle": "Bulk Upload Programs",
+      "pageDescription": "Upload a CSV to create many programs at once.",
+      "pageTitleFull": "Bulk Upload Programs | Helixion Training Provider",
+      "breadcrumb": "PROGRAMS - BATCH PUBLISH",
+      "sectionTitle": "Bulk upload programs",
+      "sectionDescription": "Upload a CSV to create many programs at once. Preview before publishing.",
+      "trySample": "Try sample CSV",
+      "dropLabel": "Drop your CSV here, or click to browse",
+      "expectedColumns": "Expected columns: title, startDate, endDate, venue, city, state (optional), isResidential, stayType (single_occupancy/twin_sharing), singleOccupancyFee, twinSharingFee, nonResidentialFee, brochureUrl (optional), minParticipants, maxParticipants, status",
+      "footerHint": "Max 500 rows per file - Duplicates will be flagged in preview",
+      "preview": "Preview: {fileName} (Showing top 5 rows)",
+      "publishButton": "Save to drafts",
+      "publishing": "Publishing...",
+      "cancelButton": "Cancel",
+      "resultsTitle": "Upload Results",
+      "uploadAnother": "Upload Another",
+      "programsCreated": "{count} programs created",
+      "rowsFailed": "{count} rows failed",
+      "rowErrors": "Row-level errors",
+      "successTitle": "Programs published!",
+      "successDescription": "{count} programs have been created successfully and are ready for review.",
+      "partialSuccessDescription": "{inserted} programs created. {failed} rows had validation errors.",
+      "errorInvalidFile": "Please upload a valid CSV file.",
+      "errorEmptyFile": "CSV file appears to be empty or invalid.",
+      "errorParseFailed": "Failed to parse CSV preview.",
+      "errorMissingFields": "All fields except brochureUrl are required.",
+      "errorUploadFailed": "Failed to upload programs. Please try again."
+   },
+   "draftPrograms": {
+      "pageTitle": "Draft Programs",
+      "breadcrumb": "PROGRAMS · DRAFTS",
+      "sectionTitle": "Draft programs",
+      "sectionDescription": "Unpublished programs saved to your workspace.",
+      "searchPlaceholder": "Search drafts...",
+      "newProgramButton": "+ New program",
+      "columnProgramTitle": "PROGRAM TITLE",
+      "columnStartDate": "START DATE",
+      "columnEndDate": "END DATE",
+      "columnVenue": "VENUE",
+      "columnCity": "CITY",
+      "columnFee": "FEE",
+      "columnStatus": "STATUS",
+      "columnActions": "ACTIONS",
+      "statusDraft": "Draft",
+      "editButton": "Edit",
+      "publishButton": "Publish",
+      "deleteButton": "Delete",
+      "lastUpdated": "Last updated",
+      "rowsPerPage": "Rows per page: {perPage}",
+      "paginationInfo": "{start} – {end} of {total}",
+      "noResults": "No draft programs found.",
+      "editPageTitle": "Edit draft program",
+      "editDraftId": "Draft {id}",
+      "editLastUpdated": "Last updated {date}",
+      "backToDrafts": "Back to drafts",
+      "programDetails": "Program details",
+      "fieldsRequired": "Fields marked with * are required for publishing.",
+      "labelProgramTitle": "Program title",
+      "labelProgramDates": "Program dates",
+      "labelStartDate": "Start / Check-in date",
+      "labelEndDate": "End / Check-out date",
+      "labelVenue": "Venue",
+      "labelCity": "City",
+      "labelStayTypeFees": "Stay type & fees",
+      "labelResidential": "Residential",
+      "labelNonResidential": "Non-Residential",
+      "labelSingleOccupancyFee": "SINGLE OCCUPANCY FEE (₹)",
+      "labelTwinSharingFee": "TWIN SHARING FEE (₹)",
+      "labelProgramFee": "PROGRAM FEE (₹)",
+      "feeSingle": "Single: ₹{fee}",
+      "feeTwin": "Twin: ₹{fee}",
+      "feeNonRes": "Non-Res: ₹{fee}",
+      "stayTypeHint": "Configure all stay options offered for this program.",
+      "labelAttachBrochure": "Attach brochure",
+      "browseButton": "Browse",
+      "brochureHint": "PDF up to 5 MB.",
+      "backButton": "Back",
+      "saveDraftButton": "Save draft",
+      "publishProgramButton": "Publish program",
+      "saving": "Saving...",
+      "publishing": "Publishing...",
+      "publishModalTitle": "Publish this training program?",
+      "publishModalDescription": "Once published, the program becomes visible to learners and is moved to Published programs. You can still edit minor details after publishing.",
+      "publishModalDisagree": "Disagree",
+      "publishModalConfirm": "Publish",
+      "deleteModalTitle": "Delete this draft?",
+      "deleteModalDescription": "This action cannot be undone. The draft program will be permanently removed from your workspace.",
+      "deleteModalCancel": "Cancel",
+      "deleteModalConfirm": "Delete",
+      "successPublished": "Program published successfully!",
+      "successSaved": "Draft saved successfully.",
+      "successDeleted": "Draft deleted successfully.",
+      "errorLoadDrafts": "Failed to load draft programs.",
+      "errorLoadDraft": "Failed to load draft program.",
+      "errorSaveDraft": "Failed to save draft. Please try again.",
+      "errorPublish": "Failed to publish program. Please try again.",
+      "errorPublishDefault": "Failed to publish",
+      "errorDelete": "Failed to delete draft. Please try again.",
+      "errorValidation": "Please fill in all required fields before publishing.",
+      "pageTitleFull": "Draft Programs | Helixion Training Provider",
+      "pageDescription": "View and manage your unpublished draft training programs.",
+      "editPageTitleFull": "Edit Draft Program | Helixion Training Provider",
+      "editPageDescription": "Edit and update your draft training program details.",
+      "errorParseFailed": "Failed to parse CSV preview."
+   },
+   "updateAttendance": {
+      "pageTitle": "Select training program",
+      "columnProgramTitle": "Program title",
+      "columnStartDate": "Start date",
+      "columnVenue": "Venue",
+      "columnStatus": "Status",
+      "rowsPerPage": "Rows per page:",
+      "updateButton": "Update attendance →",
+      "participantList": "Participant list",
+      "columnName": "# Name",
+      "columnPresent": "Present",
+      "columnAbsent": "Absent",
+      "backButton": "← Back",
+      "saveButton": "Save attendance",
+      "confirmModalTitle": "Save attendance?",
+      "confirmModalDesc": "You are saving attendance for {program}. This will update records for {count} participants.",
+      "confirmDisagree": "Disagree",
+      "confirmAgree": "Agree",
+      "successModalTitle": "Attendance saved!",
+      "successModalDesc": "Attendance for {program} has been recorded successfully.",
+      "successOkay": "Okay",
+      "errorLoadPrograms": "Failed to load programs",
+      "errorLoadParticipants": "Failed to load participants",
+      "errorSaveAttendance": "Failed to save attendance"
+   },
+   "providerDashboard": {
+      "welcome": "Welcome back, {name} — here's what's running today.",
+      "stats": {
+         "livePrograms": "Live programs",
+         "totalEnrolled": "Total enrolled",
+         "drafts": "Drafts",
+         "avgFillRate": "Avg. fill rate",
+         "allPublished": "All published",
+         "acrossPrograms": "Across {count} programs",
+         "awaitingPublish": "Awaiting publish",
+         "capacityUtilized": "Capacity utilised"
+      },
+      "livePrograms": {
+         "title": "Live training programs",
+         "subtitle": "Top 5 by enrolment",
+         "seeAll": "See all →",
+         "columns": {
+            "program": "PROGRAM",
+            "dates": "DATES",
+            "enrolled": "ENROLLED",
+            "fill": "FILL"
+         }
+      },
+      "recentActivity": {
+         "title": "Recent activity",
+         "subtitle": "Your actions across the platform"
+      },
+      "quickActions": {
+         "createProgram": "Create program",
+         "bulkUpload": "Bulk upload",
+         "publishSingle": {
+            "title": "Publish single program",
+            "desc": "Create a program, attach brochure, set fees & capacity.",
+            "link": "Start →"
+         },
+         "batchPublish": {
+            "title": "Batch publish via CSV",
+            "desc": "Upload a CSV to publish multiple programs at once.",
+            "link": "Upload →"
+         },
+         "exportEnrolment": {
+            "title": "Export enrolment data",
+            "desc": "Download attendee data per program as CSV.",
+            "link": "Export →"
+         }
+      }
+   },
+   "employeeDashboard": {
+      "stats": {
+         "programsCompleted": "Programs Completed",
+         "programsEnrolled": "Programs Enrolled",
+         "pendingApprovals": "Pending Approvals",
+         "enrolledInProgress": "{count} in progress",
+         "pendingSubtitle": "Awaiting manager"
+      },
+      "quickActions": {
+         "enroll": {
+            "title": "Enroll in Program",
+            "description": "Browse listed trainings",
+            "link": "Browse programs"
+         },
+         "approvals": {
+            "title": "View Approvals",
+            "description": "Track pending requests",
+            "link": "View requests"
+         },
+         "reports": {
+            "title": "View Reports",
+            "description": "Analytics & summaries",
+            "link": "Go to reports"
+         },
+         "profile": {
+            "title": "My Profile",
+            "description": "Update your details",
+            "link": "Edit profile"
+         }
+      }
+   },
+   "trainingDeptDashboard": {
+      "errorTitle": "Failed to load dashboard",
+      "errorDescription": "Could not fetch dashboard data. Please try again later.",
+      "welcome": "Welcome back, {name}",
+      "enroll": "Enroll",
+      "pendingApprovalsTitle": "Pending Approvals",
+      "pendingApprovalsSubtitle": "Awaiting your review",
+      "pendingTourApprovalsTitle": "Pending Tour Approvals",
+      "pendingTourApprovalsSubtitle": "Awaiting your review",
+      "viewAll": "View all",
+      "noPendingApprovals": "No pending approvals",
+      "noPendingTourApprovals": "No pending tour approvals",
+      "stats": {
+         "programsCompleted": "Programs Completed",
+         "programsCompletedSubtitleAll": "All time",
+         "programsCompletedSubtitleNone": "No completions yet",
+         "programsEnrolled": "Programs Enrolled",
+         "programsEnrolledSubtitleActive": "Currently active",
+         "programsEnrolledSubtitleNone": "None enrolled",
+         "pendingApprovals": "Pending Approvals",
+         "pendingApprovalsSubtitle": "Awaiting your review",
+         "pendingApprovalsBadge": "Action Required",
+         "pendingTourApprovals": "Pending Tour Approvals",
+         "pendingTourApprovalsSubtitleWaiting": "Awaiting your action",
+         "pendingTourApprovalsSubtitleNone": "None pending"
+      },
+      "columns": {
+         "no": "No.",
+         "employee": "Employee",
+         "programTitle": "Program Title",
+         "fromDate": "From Date",
+         "toDate": "To Date",
+         "venueCity": "Venue/City",
+         "status": "Status"
+      },
+      "quickActions": {
+         "enroll": {
+            "title": "Enroll in Program",
+            "description": "Browse listed trainings",
+            "link": "Browse Programs"
+         },
+         "ctdApprovals": {
+            "title": "CTD Approvals",
+            "description": "Review and act on pending enrollment requests",
+            "link": "Review Queue"
+         },
+         "tourApprovals": {
+            "title": "Tour Approvals",
+            "description": "Review and act on pending tour requests",
+            "link": "Review Queue"
+         },
+         "reports": {
+            "title": "View Reports",
+            "description": "Analytics & summaries",
+            "link": "View Reports"
+         },
+         "profile": {
+            "title": "My Profile",
+            "description": "Update your details",
+            "link": "View Profile"
+         }
+      }
+   },
+   "approvalStatus": {
+      "title": "Approval Status",
+      "subtitle": "Current request breakdown",
+      "total": "Total",
+      "approved": "Approved",
+      "pending": "Pending",
+      "rejected": "Rejected"
+   },
+   "managerApprovals": {
+      "title": "Approve Training Programs",
+      "subtitle": "Review and action pending enrollment requests from your team",
+      "searchPlaceholder": "Search by employee or program...",
+      "columns": {
+         "employeeName": "Employee Name",
+         "programTitle": "Program Title",
+         "fromDate": "From Date",
+         "toDate": "To Date",
+         "venueCity": "Venue/City",
+         "status": "Status"
+      },
+      "detail": {
+         "employeeDetails": "Employee Details",
+         "employee": "Employee",
+         "designation": "Designation",
+         "department": "Department",
+         "trainingProgramDetails": "Training Program Details",
+         "programTitle": "Program Title",
+         "startDate": "Start/Check-in Date",
+         "endDate": "End/Check-out Date",
+         "venue": "Venue",
+         "stayType": "Stay Type",
+         "downloadBrochure": "Download Brochure",
+         "employeeRecommendation": "Employee Recommendation",
+         "employeeTrainingHistory": "Employee Training History",
+         "noHistory": "No prior completed trainings.",
+         "tourApprovalForm": "Tour Approval Form",
+         "placeOfTour": "Place of Tour",
+         "frequentFlyerNo": "Frequent Flyer No.",
+         "modeOfTravel": "Mode of Travel",
+         "purpose": "Purpose",
+         "advancePaymentRequired": "Advance Payment Required",
+         "status": "Status",
+         "review": "Review"
+      },
+      "historyColumns": {
+         "program": "Program",
+         "from": "From",
+         "to": "To",
+         "provider": "Provider",
+         "venue": "Venue"
+      }
+   },
+   "trainingEnrolment": {
+      "breadcrumb": {
+         "workspace": "Workspace",
+         "programs": "Programs",
+         "enroll": "Enroll in Program"
+      },
+      "currentStage": "Current Stage",
+      "createdBy":"Created By",
+
+      "title": "Training Program Enrolment Form",
+      "programDetails": {
+         "title": "Program Details",
+         "programTitle": "Program Title",
+         "venue": "Venue",
+         "startDate": "Start / Check-in Date",
+         "city": "City",
+         "endDate": "End / Check-out Date",
+         "stayType": "Stay Type",
+         "singleOccupancy": "Single Occupancy",
+         "twinSharing": "Twin Sharing",
+         "nonResidential": "Non-Residential",
+         "trainingProvider": "Training Provider"
+      },
+      "tourApproval": {
+         "title": "Tour Approval Form",
+         "placeOfTour": "Place of Tour",
+         "frequentFlyerNo": "Frequent Flyer No.",
+         "modeOfTravel": "Mode of Travel",
+         "tourPurpose": "Tour Purpose"
+      },
+      "bookingDetails": {
+         "title": "Booking Details",
+         "columns": {
+            "from": "From",
+            "to": "To",
+            "flightNo": "Flight No.",
+            "departureTime": "Departure Time",
+            "dateOfTravel": "Date of Travel",
+            "travelClass": "Travel Class"
+         }
+      },
+      "advancePayment": "Advance Payment Required {amount}",
+      "stepper": {
+         "programDetails": "Program Details",
+         "travelStay": "Travel & Stay",
+         "reviewSubmit": "Review & Submit"
+      },
+      "accommodationInstruction": "Please select your preferred accommodation type",
+      "confirmEnrollButton": "Confirm & Enrol in Program",
+      "enrollInstruction": "You will be enrolled in the program. Travel & Stay details can be filled in the next step.",
+      "enrolledLabel": "Enrolled in Program",
+      "agree": "Agree",
+      "disagree": "Disagree",
+      "confirmSubmission": "Confirm Submission",
+      "confirmSubmissionDesc": "Are you sure you want to submit this enrolment for manager approval?",
+      "reviewEnrolmentTitle": "Review Enrolment",
+      "reviewEnrolmentDescription": "Your enrolment will be sent for Manager and Training Dept approval. If your training requires travel, you'll be asked to fill in travel details once it's approved."
+   },
+   "approvalProgress": {
+      "breadcrumb": {
+         "workspace": "Workspace",
+         "enrollments": "Enrollments",
+         "progress": "Approval Progress"
+      },
+      "title": "Enrollment Approval Progress",
+      "subtitle": "Track the status of your training program enrollment request",
+      "steps": {
+         "submitted": "Application Submitted",
+         "manager": "Approved by Reporting Manager",
+         "hrReview": "CTD Review",
+         "ctdTourReview": "Final Travel Approval",
+         "reimbursementSubmitted": "Reimbursement Form Submitted",
+         "credited": "Reimbursement Credited to Bank Account"
+      },
+      "statusMessage": "Your application is currently under CTD Review. You will be notified once it proceeds to the next stage.",
+      "statusMessages": {
+         "submitted": "Your enrollment request has been initialized. Please complete travel and stay details to submit for review.",
+         "managerReview": "Your application has been submitted and is currently awaiting approval from your Reporting Manager.",
+         "hrReview": "Your application has been approved by your manager and is currently under CTD review.",
+         "ctdTourReview": "Your enrollment has been approved and your travel request is being reviewed.",
+         "submitTourDetails":"Your enrollment has been approved. Please submit your tour details to proceed.",
+         "attendance": "Your attendance for the training has been recorded! You can now submit your reimbursement claim.",
+         "reimbursement": "Your reimbursement claim has been submitted and is under financial audit/review.",
+         "credited": "Congratulations! Your reimbursement has been approved and successfully credited to your bank account.",
+         "rejected": "Your enrollment request was not approved. Please contact your reporting manager for more details.",
+         "default": "Track the status of your training program enrollment request above."
+      },
+      "enrolledPrograms": {
+         "title": "Training Programs Enrolled",
+         "columns": {
+            "no": "No.",
+            "title": "Program Title",
+            "fromDate": "From Date",
+            "toDate": "To Date",
+            "venueCity": "Venue/City",
+            "tourFormRequired": "Tour Form Required",
+            "status": "Status"
+         },
+         "browseprogramtoenroll": "Browse programs to enroll",
+         "selectAnUpComingProgram": "Please select an upcoming training program from the Programs menu to enroll.",
+         "notEnrollAnyProgram": "You have not enrolled in any training programs yet."
+      }
+   },
+   "add": {
+      "enroll": "Add Enrollment"
+   }
+}
