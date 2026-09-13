@@ -43,7 +43,8 @@
          "enrollingButton": "Enrolling...",
          "enrollError": "Enrollment failed. Please try again.",
          "confirmedLabel": "Confirmed",
-         "duplicateButton": "Duplicate"
+         "duplicateButton": "Duplicate",
+         "duplicateLoadError": "Failed to load program details for duplication. Please try again."
       },
       "fields": {
          "start": "Starts",
@@ -784,6 +785,7 @@
          "reimbursement": "Your reimbursement claim has been submitted and is under financial audit/review.",
          "credited": "Congratulations! Your reimbursement has been approved and successfully credited to your bank account.",
          "rejected": "Your enrollment request was not approved. Please contact your reporting manager for more details.",
+         "rejectedQuotaFull": "This program reached its maximum attendance capacity before your enrollment could be approved. Please contact the Training Provider.",
          "default": "Track the status of your training program enrollment request above."
       },
       "enrolledPrograms": {
@@ -796,6 +798,9 @@
             "venueCity": "Venue/City",
             "tourFormRequired": "Tour Form Required",
             "status": "Status"
+         },
+         "badgeLabels": {
+            "rejectedQuotaFull": "Rejected - Program Full"
          },
          "browseprogramtoenroll": "Browse programs to enroll",
          "selectAnUpComingProgram": "Please select an upcoming training program from the Programs menu to enroll.",

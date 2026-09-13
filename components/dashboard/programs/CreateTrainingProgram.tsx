@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
@@ -96,6 +97,7 @@ export default function CreateTrainingProgram() {
         });
       } catch (err) {
         console.error("Failed to load source program for duplication:", err);
+        toast.error(t("programme.list.duplicateLoadError"));
       }
     })();
   }, [duplicateFromId]);
