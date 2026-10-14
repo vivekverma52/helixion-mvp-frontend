@@ -1,4 +1,5 @@
 import { api } from '@/lib/api';
+import { API } from '@/constants/api';
 import type { DraftProgram, DraftProgramsResponse } from '@/types';
 
 // ΓöÇΓöÇΓöÇ Bulk Upload ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
@@ -32,6 +33,8 @@ export interface UpdateDraftPayload {
   twinSharingFee?: number;
   nonResidentialFee?: number;
   brochureUrl?: string;
+  minParticipants?:number,
+  maxParticipants?:number
 }
 
 // ─── Dashboard Types ─────────────────────────────────────────────────────────
@@ -64,6 +67,21 @@ export interface ProviderDashboardResponse {
   overview: DashboardOverview;
   topPrograms: DashboardTopProgram[];
   recentActivities: DashboardActivity[];
+}
+
+export interface PendingTpConfirmation {
+  _id: string;
+  programId: string;
+  programTitle: string;
+  employeeId: string;
+  employeeName: string;
+  employeeCode?: string;
+  ctdApprovedAt: string | null;
+}
+
+export interface ConfirmEnrollmentResponse {
+  status: string;
+  tpConfirmationDate: string | null;
 }
 
 // ─── Provider Service ────────────────────────────────────────────────────────
@@ -157,4 +175,125 @@ export const providerService = {
     );
     return response.data.data;
   },
+
+  getPendingTpConfirmations: async (): Promise<PendingTpConfirmation[]> => {
+    const response = await api.get<{ data: PendingTpConfirmation[] }>(
+      API.TRAININGPROVIDER.PENDING_CONFIRMATIONS
+    );
+    return response.data.data;
+  },
+
+  confirmEnrollment: async (
+    programId: string,
+    enrollmentId: string,
+    notes?: string
+  ): Promise<ConfirmEnrollmentResponse> => {
+    const response = await api.patch<{ data: ConfirmEnrollmentResponse }>(
+      API.TRAININGPROVIDER.CONFIRM_ENROLLMENT(programId, enrollmentId),
+      { notes }
+    );
+    return response.data.data;
+  },
+
+  declineEnrollment: async (
+    programId: string,
+    enrollmentId: string,
+    notes?: string
+  ): Promise<{ status: string }> => {
+    const response = await api.patch<{ data: { status: string } }>(
+      API.TRAININGPROVIDER.DECLINE_ENROLLMENT(programId, enrollmentId),
+      { notes }
+    );
+    return response.data.data;
+  },
+
+  listProgramInvoices: async (programId: string): Promise<ProgramInvoice[]> => {
+    const response = await api.get<{ data: ProgramInvoice[] }>(
+      API.TRAININGPROVIDER.PROGRAM_INVOICES(programId)
+    );
+    return response.data.data;
+  },
+
+  getInvoiceCompanies: async (programId: string): Promise<InvoiceCompany[]> => {
+    const response = await api.get<{ data: InvoiceCompany[] }>(
+      API.TRAININGPROVIDER.INVOICE_COMPANIES(programId)
+    );
+    return response.data.data;
+  },
+
+  getInvoicePreviewData: async (programId: string): Promise<InvoicePreview[]> => {
+    const response = await api.get<{ data: InvoicePreview[] }>(
+      API.TRAININGPROVIDER.INVOICE_PREVIEW_DATA(programId)
+    );
+    return response.data.data;
+  },
+
+  generateProgramInvoice: async (programId: string, companyOrgId: string): Promise<ProgramInvoice> => {
+    const response = await api.post<{ data: ProgramInvoice }>(
+      API.TRAININGPROVIDER.PROGRAM_INVOICES(programId),
+      { companyOrgId }
+    );
+    return response.data.data;
+  },
+
+  downloadInvoicePdf: async (invoiceId: string): Promise<Blob> => {
+    const response = await api.get<Blob>(API.TRAININGPROVIDER.INVOICE_PDF(invoiceId), {
+      responseType: 'blob',
+    });
+    return response.data;
+  },
 };
+
+export interface InvoiceCompany {
+  companyOrgId: string;
+  companyName: string;
+  billableCount: number;
+  hasBillingDetails: boolean;
+}
+
+export interface InvoiceLine {
+  enrollmentId: string;
+  participantName: string;
+  employeeCode?: string;
+  designation?: string;
+  stayType: string;
+  feePaise: number;
+  daysPresent: number;
+  totalDays: number;
+  attendance: { day: string; status: string }[];
+}
+
+export interface InvoiceCompanyDetail {
+  companyOrgId: string;
+  companyName: string;
+  gstin: string;
+  stateCode: string;
+  stateName: string;
+  discountPercent: number;
+  lines: InvoiceLine[];
+  subtotalPaise: number;
+  discountPaise: number;
+  taxablePaise: number;
+  cgstPaise: number;
+  sgstPaise: number;
+  igstPaise: number;
+  totalPaise: number;
+}
+
+export interface ProgramInvoice {
+  _id: string;
+  invoiceNumber: string;
+  invoiceDate: string;
+  program: { title: string; venue?: string; city?: string; startDate?: string; endDate?: string };
+  provider: { name: string; gstin: string; pan: string; stateCode: string; stateName: string };
+  companies: InvoiceCompanyDetail[];
+  subtotalPaise: number;
+  discountPaise: number;
+  taxablePaise: number;
+  cgstPaise: number;
+  sgstPaise: number;
+  igstPaise: number;
+  totalPaise: number;
+}
+
+export type InvoicePreview = Omit<ProgramInvoice, '_id'>;

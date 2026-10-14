@@ -1,8 +1,15 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Search, Plus } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Search, Plus, Pencil, Receipt, MoreVertical, Copy, ClipboardCheck } from "lucide-react";
+import {
+   DropdownMenu,
+   DropdownMenuContent,
+   DropdownMenuItem,
+   DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { usePrograms } from "@/hooks/UseProgramReturn";
 import DataTable from "@/components/shared/data-table";
@@ -29,9 +36,14 @@ export default function ProgramsPage() {
          key: "title",
          header: t("programme.title"),
          render: (program: Program) => (
-            <span className="font-medium text-sm">
-               {program.title}
-            </span>
+            <div className="min-w-[220px] max-w-[320px]">
+               <span
+                  className="block truncate text-sm font-semibold text-textPrimary"
+                  title={program.title}
+               >
+                  {program.title}
+               </span>
+            </div>
          ),
       },
 
@@ -39,15 +51,12 @@ export default function ProgramsPage() {
          key: "startDate",
          header: t("programme.date"),
          render: (program: Program) => (
-            <span className="text-xs text-textSidebarMuted">
-               {new Date(program.startDate).toLocaleDateString(
-                  "en-GB",
-                  {
-                     day: "2-digit",
-                     month: "short",
-                     year: "numeric",
-                  }
-               )}
+            <span className="whitespace-nowrap text-sm text-textSidebarMuted">
+               {new Date(program.startDate).toLocaleDateString("en-GB", {
+                  day: "2-digit",
+                  month: "short",
+                  year: "numeric",
+               })}
             </span>
          ),
       },
@@ -56,9 +65,15 @@ export default function ProgramsPage() {
          key: "enrolledCount",
          header: t("programme.list.enrolledLabel"),
          render: (program: Program) => (
-            <span className="text-sm font-medium">
-               {program.enrolledCount} / {program.maxParticipants}
-            </span>
+            <div className="flex items-center">
+               <span className="rounded-md bg-bgStatCard px-2.5 py-1 text-sm font-semibold text-textPrimary">
+                  {program.enrolledCount}
+                  <span className="mx-1 text-textSidebarMuted">/</span>
+                  <span className="text-textSidebarMuted">
+                     {program.maxParticipants}
+                  </span>
+               </span>
+            </div>
          ),
       },
 
@@ -66,10 +81,16 @@ export default function ProgramsPage() {
          key: "fillRate",
          header: t("providerDashboard.livePrograms.columns.fill"),
          render: (program: Program) => (
-            <div className="w-16">
-               <div className="h-1.5 w-full rounded-full bg-bgStatCard overflow-hidden">
+            <div className="flex w-24 flex-col gap-1.5">
+               <div className="flex items-center justify-between">
+                  <span className="text-xs font-medium text-textPrimary">
+                     {Math.round(program.fillRate)}%
+                  </span>
+               </div>
+
+               <div className="h-1.5 w-full overflow-hidden rounded-full bg-bgStatCard">
                   <div
-                     className="h-full rounded-full bg-primary transition-all"
+                     className="h-full rounded-full bg-primary transition-all duration-300"
                      style={{
                         width: `${ Math.min(program.fillRate, 100) }%`,
                      }}
@@ -78,8 +99,86 @@ export default function ProgramsPage() {
             </div>
          ),
       },
-   ];
 
+      {
+         key: "confirmedEnrollmentCount",
+         header: t("programme.list.confirmedLabel"),
+         render: (program: Program) => (
+            <div className="flex items-center">
+               <span className="rounded-md bg-primary/10 px-2.5 py-1 text-sm font-semibold text-primary">
+                  {program.confirmedEnrollmentCount ?? 0}
+                  <span className="mx-1 opacity-50">/</span>
+                  <span className="opacity-70">
+                     {program.maxParticipants}
+                  </span>
+               </span>
+            </div>
+         ),
+      },
+
+      {
+         key: "actions",
+         header: "",
+         render: (program: Program) => {
+            const hasEnded = !!program.endDate && new Date(program.endDate) < new Date();
+            return (
+               <div className="flex items-center justify-end gap-1">
+                  <DropdownMenu>
+                     <DropdownMenuTrigger
+                        className={cn(
+                           buttonVariants({ variant: "ghost", size: "icon" }),
+                           "h-8 w-8 rounded-md text-textSidebarMuted hover:bg-bgButton hover:text-white"
+                        )}
+                        title="More actions"
+                     >
+                        <MoreVertical size={15} />
+                     </DropdownMenuTrigger>
+                     <DropdownMenuContent align="end" className="min-w-40 bg-[#1a1b25] border border-white/10 text-white">
+                        <DropdownMenuItem
+                           onClick={() => router.push(`/dashboard/update-attendance/${program._id}`)}
+                           className="text-white whitespace-nowrap focus:bg-bgButton focus:text-white"
+                        >
+                           <ClipboardCheck size={14} className="mr-2" />
+                           Attendance
+                        </DropdownMenuItem>
+                        {hasEnded && (
+                           <DropdownMenuItem
+                              onClick={() => window.open(`/dashboard/programs/invoices/${program._id}`, "_blank")}
+                              className="text-white whitespace-nowrap focus:bg-bgButton focus:text-white"
+                           >
+                              <Receipt size={14} className="mr-2" />
+                              {t("providerDashboard.invoices.action")}
+                           </DropdownMenuItem>
+                        )}
+                        <DropdownMenuItem
+                           onClick={() =>
+                              router.push(
+                                 `${ ROUTES.PROVIDER.PROGRAMS.CREATE }?duplicateFrom=${ program._id }`
+                              )
+                           }
+                           className="text-white whitespace-nowrap focus:bg-bgButton focus:text-white"
+                        >
+                           <Copy size={14} className="mr-2" />
+                           {t('programme.list.duplicateButton')}
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+                           onClick={() =>
+                              router.push(
+                                 `/dashboard/programs/edit-published/${ program._id }`
+                              )
+                           }
+                           className="text-white whitespace-nowrap focus:bg-bgButton focus:text-white"
+                        >
+                           <Pencil size={14} className="mr-2" />
+                           Edit Program
+                        </DropdownMenuItem>
+                     </DropdownMenuContent>
+                  </DropdownMenu>
+               </div>
+            );
+         },
+      },
+   ];
    return (
       <div className="flex flex-col gap-5">
 

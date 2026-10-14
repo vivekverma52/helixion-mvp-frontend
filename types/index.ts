@@ -7,7 +7,8 @@ export interface Permissions {
   canApproveTrainingDept: boolean,
   canApproveTourCtd: boolean,
   canReviewOsd: boolean,
-  canApproveOsd: boolean
+  canApproveOsd: boolean,
+  canFeedback:boolean
 }
 // ─── User ────────────────────────────────────────────────────────────────────
 export interface User {
@@ -183,4 +184,12 @@ export interface TravelDetailsFormProps {
   submitting: boolean;
   onBack: () => void;
   onSubmit: () => void;
+}
+
+export interface ResetLinkResult {
+  successful: string[];
+  failed: {
+    email: string;
+    reason: string;
+  }[];
 }

@@ -4,6 +4,7 @@ export const API = {
       LOGOUT: '/auth/logout',
       REGISTER: '/auth/register',
       SEND_PASSWORD_RESET_LINK: '/auth/send-reset-link',
+      SEND_BULK_PASSWORD_RESET_LINK: 'auth/admin/send-reset-link',
       RESET_PASSWORD: '/auth/reset-password'
    },
    ADMIN: {
@@ -12,6 +13,8 @@ export const API = {
       USERS_SEARCH: '/admin/users/search',
       DASHBOARD_STATS: '/admin/dashboard/stats',
       BATCH_CREATE: '/admin/users/batch',
+      BATCH_CREATE_ASYNC: '/admin/users/batch-async',
+      BATCH_CREATE_STATUS: (jobId: string) => `/admin/users/batch/${jobId}`,
       DEACTIVATE_USER: (id: string) => `/admin/users/${id}/deactivate`,
       ACTIVATE_USER: (id: string) => `/admin/users/${id}/activate`,
       GET_EMPLOYEE: (id: string) => `/admin/users/${id}`,
@@ -31,9 +34,10 @@ export const API = {
       ENROLLMENT_DETAILS: (id: string) => `/employee/enrollments/${id}`,
       UPDATE_TRAVEL: (id: string) => `/employee/enrollments/${id}/travel`,
       SUBMIT_ENROLLMENT: (id: string) => `/employee/enrollments/${id}/submit`,
-      NOTIFICATIONS: '/employee/notifications',
       SUBMIT_TOUR: (id: string) => `/employee/enrollments/${id}/tour/submit`,
-      ENROLLMENTPANEL:'/employee/enrollments/panel'
+      ENROLLMENTPANEL:'/employee/enrollments/panel',
+      FEEDBACK_PROGRAMS: '/employee/feedback/programs',
+      FEEDBACK: '/employee/feedback'
    },
    MANAGER: {
       DASHBOARD: '/manager/dashboard',
@@ -57,6 +61,19 @@ export const API = {
       PARTICIPANTS:     (id: string) => `/training-provider/programs/${id}/participants`,
       ATTENDANCE:       (id: string) => `/training-provider/programs/${id}/attendance`,
       ATTENDANCE_SINGLE:(id: string, pid: string) => `/training-provider/programs/${id}/attendance/${pid}`,
-      PROGRAM_LIST:      '/training-provider/programs/list'
+      PROGRAM_LIST:      '/training-provider/programs/list',
+      UPDATE_PROGRAM:   (id: string) => `/training-provider/program/${id}`,
+      ATTENDANCE_NOTES: (id: string, pid: string) => `/training-provider/programs/${id}/attendance/${pid}/notes`,
+      PENDING_CONFIRMATIONS: '/training-provider/enrollments/pending-confirmations',
+      CONFIRM_ENROLLMENT: (programId: string, enrollmentId: string) => `/training-provider/programs/${programId}/enrollments/${enrollmentId}/confirm`,
+      DECLINE_ENROLLMENT: (programId: string, enrollmentId: string) => `/training-provider/programs/${programId}/enrollments/${enrollmentId}/decline`,
+      PROGRAM_INVOICES: (id: string) => `/training-provider/programs/${id}/invoices`,
+      INVOICE_COMPANIES: (id: string) => `/training-provider/programs/${id}/invoice-companies`,
+      INVOICE_PREVIEW_DATA: (id: string) => `/training-provider/programs/${id}/invoice-preview-data`,
+      INVOICE_PDF: (invoiceId: string) => `/training-provider/invoices/${invoiceId}/pdf`,
+   },
+   NOTIFICATION:{
+      READ:(id:string) => `/notifications/${id}/read`,
+            LIST: '/notifications',
    }
 }

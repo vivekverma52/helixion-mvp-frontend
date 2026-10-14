@@ -4,9 +4,12 @@ export interface Program {
   _id:string,
   title: string;
   startDate: string;
+  endDate?: string;
   enrolledCount: number;
   maxParticipants: number;
   fillRate: number;
+  /** Authoritative "sent to TP" count — see backend Program.confirmedEnrollmentCount */
+  confirmedEnrollmentCount: number;
 }
 
 

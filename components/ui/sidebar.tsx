@@ -1,7 +1,7 @@
 import { SidebarFooterProps, SidebarMenuProps, SidebarNavItemProps, SidebarProfileProps, SidebarProps } from '../../props/sidebar';
 import { ROLE_LABEL } from '../../constants/employee';
 import Link from 'next/link';
-import { Award, BarChart3, Bell, BookOpen, ClipboardCheck, Download, FileText, LayoutDashboard, Plane, PlusCircle, Search, Settings, Shield, Upload, UploadCloud, User, UserCircle, Users, Zap, KeyRound } from 'lucide-react';
+import { Award, BarChart3, Bell, BookOpen, ClipboardCheck, Download, FileText, LayoutDashboard, MessageSquare, Plane, PlusCircle, Search, Settings, Shield, Upload, UploadCloud, User, UserCircle, Users, Zap, KeyRound, LogOut } from 'lucide-react';
 import { NavItem } from '@/types';
 import { AppAvatar } from './avatar';
 import CountBadge from './count-badge';
@@ -31,6 +31,7 @@ const ICON_MAP: Record<string, any> = {
   'bar-chart-3': BarChart3,
   user: User,
   plane: Plane,
+  'messageSquare': MessageSquare
 };
 
 
@@ -82,7 +83,7 @@ function SidebarNavItem({ item, isActive, onClick }: any) {
   const baseClass = `
     flex items-center gap-2 px-2 py-1.5 rounded-md text-[11px]
     cursor-pointer transition-colors duration-150 mb-0.5 select-none
-    ${ isActive
+    ${isActive
       ? "bg-blue-900/30 text-blue-300"
       : "text-white/35 hover:text-white/60 hover:bg-white/5"
     }
@@ -95,7 +96,7 @@ function SidebarNavItem({ item, isActive, onClick }: any) {
     <>
       {Icon && (
         <Icon
-          className={`w-3.5 h-3.5 flex-shrink-0 ${ isActive ? "text-blue-400" : "text-current"
+          className={`w-3.5 h-3.5 flex-shrink-0 ${isActive ? "text-blue-400" : "text-current"
             }`}
         />
       )}
@@ -174,9 +175,10 @@ function SidebarFooter({ onSignOut }: SidebarFooterProps) {
     <div className="px-3.5 py-2.5 border-t border-white/[0.06]">
       <button
         onClick={onSignOut}
-        className="text-[10px] text-white/25 hover:text-white/50 transition-colors duration-150 cursor-pointer"
+        className="w-full flex items-center gap-2 px-2 py-1.5 rounded-md text-[12px] text-red-500/80 cursor-pointer transition-colors duration-150 hover:bg-red-500/10 hover:text-red-400"
       >
-        Sign out
+        <LogOut className="w-3.5 h-3.5 flex-shrink-0" />
+        <span>Sign out</span>
       </button>
     </div>
   );
@@ -185,7 +187,7 @@ function SidebarFooter({ onSignOut }: SidebarFooterProps) {
 // ─── Component ────────────────────────────────────────────────────────────────
 export function Sidebar({ user, navSections, activeKey, onNavChange, onSignOut }: SidebarProps) {
   return (
-    <aside className="flex flex-col h-full bg-[#080e1a] border-r border-white/[0.06]">
+    <aside className="flex flex-col h-full min-h-0 overflow-hidden bg-[#080e1a] border-r border-white/[0.06]">
       <SidebarLogo />
       <SidebarProfile user={user} />
       <SidebarMenu
